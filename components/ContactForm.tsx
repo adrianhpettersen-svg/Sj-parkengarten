@@ -39,7 +39,7 @@ export function ContactForm({ variant = "default" }: Props) {
   }
 
   return (
-    <form className="form-card reveal d1" onSubmit={onSubmit} noValidate>
+    <form className="form-card" onSubmit={onSubmit} noValidate>
       <h3>Send oss en melding</h3>
       <div className="form-row">
         <div className="field">
