@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
+import { Gallery, type GalleryImage } from "@/components/Gallery";
 import { ContactForm } from "@/components/ContactForm";
 import { site } from "@/lib/site";
 import {
@@ -57,7 +58,7 @@ const facts = [
   { Icon: PinIcon, body: <><b>Kort vei</b> til Hitra og Frøya og en fantastisk skjærgård.</> },
 ];
 
-const galleryImages = [
+const galleryImages: GalleryImage[] = [
   { src: "/assets/sunset.jpg", alt: "Solnedgang over havet ved Sjøparken Garten", cls: "wide tall" },
   { src: "/assets/marina.jpg", alt: "Boliger ved marinaen", cls: "" },
   { src: "/assets/rope.jpg", alt: "Tau og fortøyning langs havna", cls: "" },
@@ -308,18 +309,8 @@ export default function HomePage() {
               </Link>
             </Reveal>
           </div>
-          <Reveal className="gal-grid" delay={1}>
-            {galleryImages.map((img) => (
-              <figure key={img.src} className={img.cls || undefined}>
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 560px) 50vw, (max-width: 1080px) 50vw, 25vw"
-                  style={{ objectFit: "cover" }}
-                />
-              </figure>
-            ))}
+          <Reveal delay={1}>
+            <Gallery images={galleryImages} />
           </Reveal>
         </div>
       </section>

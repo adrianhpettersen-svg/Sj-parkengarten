@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Newsreader, Hanken_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { site } from "@/lib/site";
 import {
   JsonLd,
@@ -33,6 +35,13 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+const ogImage = {
+  url: "/og-default.jpg",
+  width: 1200,
+  height: 630,
+  alt: `${site.longName} i kveldssol — tett på havet, trygt i havn`,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -44,9 +53,15 @@ export const metadata: Metadata = {
   generator: "Next.js",
   keywords: [
     "Sjøparken Garten",
+    "Sjøparken Garten Marina",
     "marina",
+    "marina Trøndelag",
+    "marina Fosen",
     "båtplasser",
     "båtplass",
+    "båtplass Garten",
+    "båtplass Trondheim",
+    "båtplass Fosen",
     "Garten",
     "Fosen",
     "Trøndelag",
@@ -54,8 +69,11 @@ export const metadata: Metadata = {
     "båtslipp",
     "sløyebod",
     "båtlager",
-    "gjestehavn",
-    "havn",
+    "vinterlager båt",
+    "gjestehavn Trøndelag",
+    "havn Trøndelag",
+    "molo",
+    "havn Garten",
   ],
   authors: [{ name: site.longName, url: site.url }],
   creator: site.longName,
@@ -68,7 +86,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
-    languages: { "nb-NO": "/" },
+    languages: { "nb-NO": "/", "no": "/" },
   },
   openGraph: {
     type: "website",
@@ -77,20 +95,13 @@ export const metadata: Metadata = {
     siteName: site.longName,
     title: `${site.longName} — Helt ytterst av Fosen-halvøya`,
     description: site.description,
-    images: [
-      {
-        url: "/assets/hero-sunset.jpg",
-        width: 1600,
-        height: 900,
-        alt: `${site.longName} i kveldssol`,
-      },
-    ],
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.longName} — Helt ytterst av Fosen-halvøya`,
     description: site.description,
-    images: ["/assets/hero-sunset.jpg"],
+    images: [ogImage.url],
   },
   robots: {
     index: true,
@@ -103,9 +114,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+  verification: {
+    // Sett GOOGLE_SITE_VERIFICATION i Vercel env vars når dere er klare for Search Console
+    google: process.env.GOOGLE_SITE_VERIFICATION,
   },
 };
 
@@ -115,11 +126,16 @@ export default function RootLayout({
   return (
     <html lang="no" className={`${newsreader.variable} ${hanken.variable}`}>
       <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <JsonLd data={organizationSchema()} />
         <JsonLd data={marinaSchema()} />
         <JsonLd data={websiteSchema()} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   );
 }

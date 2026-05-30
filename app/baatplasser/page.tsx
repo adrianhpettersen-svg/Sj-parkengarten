@@ -5,7 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, JsonLd } from "@/lib/structured-data";
+import { breadcrumbSchema, JsonLd, serviceSchema } from "@/lib/structured-data";
 import {
   ArrowRight,
   CheckIcon,
@@ -27,9 +27,6 @@ export const metadata: Metadata = {
     description:
       "15 båtplasser i godt skjermet havn på Garten — fra 2,5 m til 35 fot.",
     url: `${site.url}/baatplasser`,
-    images: [
-      { url: "/assets/harbor.jpg", width: 1600, height: 900, alt: "Marinaen sett ovenfra" },
-    ],
   },
 };
 
@@ -103,6 +100,14 @@ export default function BaatplasserPage() {
           { name: "Hjem", href: "/" },
           { name: "Båtplasser", href: "/baatplasser" },
         ])}
+      />
+      <JsonLd
+        data={serviceSchema({
+          name: "Båtplassutleie ved Sjøparken Garten Marina",
+          description:
+            "Sesongleie av båtplasser fra 2,5 m til 35 fot i godt skjermet havn på Garten i Trøndelag. Sesongen varer fra april til oktober.",
+          serviceType: "Båtplassutleie",
+        })}
       />
 
       <section className="page-hero" aria-labelledby="bp-title">

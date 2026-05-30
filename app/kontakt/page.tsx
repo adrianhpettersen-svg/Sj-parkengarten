@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, JsonLd } from "@/lib/structured-data";
+import { breadcrumbSchema, contactPageSchema, JsonLd } from "@/lib/structured-data";
 import {
   ClockIcon,
   MailIcon,
@@ -23,7 +23,6 @@ export const metadata: Metadata = {
     title: `Kontakt — ${site.longName}`,
     description: `Ta kontakt med ${site.longName} — Gartveien 253, 7153 Garten.`,
     url: `${site.url}/kontakt`,
-    images: [{ url: "/assets/aerial.jpg", width: 1600, height: 900 }],
   },
 };
 
@@ -37,6 +36,7 @@ export default function KontaktPage() {
           { name: "Kontakt", href: "/kontakt" },
         ])}
       />
+      <JsonLd data={contactPageSchema()} />
 
       <section
         style={{

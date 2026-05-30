@@ -19,5 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified,
     changeFrequency,
     priority,
+    alternates: {
+      languages: { "nb-NO": `${site.url}${path}` },
+    },
   }));
 }

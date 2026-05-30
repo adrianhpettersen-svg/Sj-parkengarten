@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
+import { Gallery, type GalleryImage } from "@/components/Gallery";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, JsonLd } from "@/lib/structured-data";
+import { breadcrumbSchema, imageGallerySchema, JsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "Galleri",
@@ -15,11 +15,10 @@ export const metadata: Metadata = {
     title: `Galleri — ${site.longName}`,
     description: "Bilder fra marinaen, skjærgården og anlegget.",
     url: `${site.url}/galleri`,
-    images: [{ url: "/assets/sunset.jpg", width: 1600, height: 900 }],
   },
 };
 
-const images = [
+const images: GalleryImage[] = [
   { src: "/assets/sunset.jpg", alt: "Solnedgang over havet ved Sjøparken Garten", cls: "wide tall" },
   { src: "/assets/marina.jpg", alt: "Boliger ved marinaen", cls: "" },
   { src: "/assets/rope.jpg", alt: "Tau og fortøyning langs havna", cls: "tall" },
@@ -42,6 +41,7 @@ export default function GalleriPage() {
           { name: "Galleri", href: "/galleri" },
         ])}
       />
+      <JsonLd data={imageGallerySchema(images)} />
 
       <section
         style={{ paddingTop: "clamp(140px, 16vh, 180px)", paddingBottom: 0 }}
@@ -64,6 +64,7 @@ export default function GalleriPage() {
             </h1>
             <p>
               Et utvalg bilder fra marinaen, anlegget og naturen rundt {site.longName}.
+              Klikk på et bilde for å se det i full størrelse.
             </p>
           </Reveal>
         </div>
@@ -71,18 +72,8 @@ export default function GalleriPage() {
 
       <section className="section-y gallery" aria-label="Galleribilder">
         <div className="container-x">
-          <Reveal className="gal-grid">
-            {images.map((img) => (
-              <figure key={img.src} className={img.cls || undefined}>
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 560px) 50vw, (max-width: 1080px) 50vw, 25vw"
-                  style={{ objectFit: "cover" }}
-                />
-              </figure>
-            ))}
+          <Reveal>
+            <Gallery images={images} />
           </Reveal>
         </div>
       </section>
