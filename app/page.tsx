@@ -19,7 +19,7 @@ const services = [
   {
     n: "01",
     title: "Båtplasser",
-    text: "16 plasser i godt skjermet havn — fra 2,5 m og opp til 35 fot.",
+    text: "15 plasser i godt skjermet havn — fra 2,5 m og opp til 35 fot.",
     image: "/assets/harbor.jpg",
     alt: "Båtplasser i marinaen på Garten",
     href: "/baatplasser",
@@ -59,7 +59,7 @@ const facts = [
 
 const galleryImages = [
   { src: "/assets/sunset.jpg", alt: "Solnedgang over havet ved Sjøparken Garten", cls: "wide tall" },
-  { src: "/assets/marina.jpg", alt: "Utleieboliger ved marinaen", cls: "" },
+  { src: "/assets/marina.jpg", alt: "Boliger ved marinaen", cls: "" },
   { src: "/assets/rope.jpg", alt: "Tau og fortøyning langs havna", cls: "" },
   { src: "/assets/harbor.jpg", alt: "Marinaen sett ovenfra", cls: "wide" },
   { src: "/assets/extra2.jpg", alt: "Båthavn i sol", cls: "" },
@@ -132,8 +132,8 @@ export default function HomePage() {
             <Reveal as="p" delay={1}>
               {site.longName} ligger nordvendt ytterst på Garten, siste stopp med
               fastlandsforbindelse via bro. Et fullverdig marinaanlegg med
-              utleieboliger, fantastisk skjærgård rett utenfor og kort vei til både
-              fjord og storhav.
+              fantastisk skjærgård rett utenfor og kort vei til både fjord og
+              storhav.
             </Reveal>
           </div>
           <div className="intro-grid">
@@ -141,7 +141,7 @@ export default function HomePage() {
               <div className="num">
                 30<small>MÅL</small>
               </div>
-              <p className="lbl">Anlegg med utleieboliger, båtplasser, slipp og sløyebod.</p>
+              <p className="lbl">Anlegg med båtplasser, sløyebod, båtslipp og båtlager.</p>
             </Reveal>
             <Reveal className="stat" delay={1}>
               <div className="num">
@@ -251,7 +251,7 @@ export default function HomePage() {
           <div className="berth-grid">
             <Reveal>
               <p className="eyebrow light">Båtplasser 2026</p>
-              <h2 id="berth-title">16 plasser i en havn som tåler været.</h2>
+              <h2 id="berth-title">15 plasser i en havn som tåler været.</h2>
               <p className="lead">
                 Den 165 meter lange moloen skjermer bassenget godt. Et knippe plasser
                 er ledige for neste sesong — sikre deg fast plass ytterst mot storhavet.
@@ -266,7 +266,7 @@ export default function HomePage() {
                   <div className="t">plass · 3,5 meter</div>
                 </div>
                 <div className="bstat">
-                  <div className="n">3</div>
+                  <div className="n">2</div>
                   <div className="t">plasser · opp til 35 fot</div>
                 </div>
               </div>
@@ -342,8 +342,8 @@ export default function HomePage() {
               <p className="eyebrow light">Kontakt</p>
               <h2 id="contact-title">Klar for en plass ytterst mot havet?</h2>
               <p className="lead">
-                Ta kontakt for båtplasser 2026, utleiebolig eller bare et spørsmål —
-                vi svarer gjerne.
+                Ta kontakt for båtplasser 2026 eller spørsmål om anlegget — vi
+                svarer gjerne.
               </p>
               <div className="contact-info">
                 <div className="row">

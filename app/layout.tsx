@@ -54,7 +54,6 @@ export const metadata: Metadata = {
     "båtslipp",
     "sløyebod",
     "båtlager",
-    "utleiebolig",
     "gjestehavn",
     "havn",
   ],

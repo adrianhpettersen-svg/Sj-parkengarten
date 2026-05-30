@@ -82,7 +82,7 @@ export function ContactForm({ variant = "default" }: Props) {
             id="cf-emne"
             name="emne"
             type="text"
-            placeholder="F.eks. båtplass 2026, utleiebolig …"
+            placeholder="F.eks. båtplass 2026, sløyebod …"
           />
         </div>
       )}

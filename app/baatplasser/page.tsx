@@ -8,7 +8,6 @@ import { site } from "@/lib/site";
 import { breadcrumbSchema, JsonLd } from "@/lib/structured-data";
 import {
   ArrowRight,
-  BoltIcon,
   CheckIcon,
   FishIcon,
   InfoIcon,
@@ -21,12 +20,12 @@ import {
 export const metadata: Metadata = {
   title: "Båtplasser",
   description:
-    "16 båtplasser i godt skjermet havn på Garten — fra 2,5 m til 35 fot. Kart, plasstyper, priser og fasiliteter ved Sjøparken Garten Marina.",
+    "15 båtplasser i godt skjermet havn på Garten — fra 2,5 m til 35 fot. Kart, plasstyper, priser og fasiliteter ved Sjøparken Garten Marina.",
   alternates: { canonical: "/baatplasser" },
   openGraph: {
     title: "Båtplasser — Sjøparken Garten Marina",
     description:
-      "16 båtplasser i godt skjermet havn på Garten — fra 2,5 m til 35 fot.",
+      "15 båtplasser i godt skjermet havn på Garten — fra 2,5 m til 35 fot.",
     url: `${site.url}/baatplasser`,
     images: [
       { url: "/assets/harbor.jpg", width: 1600, height: 900, alt: "Marinaen sett ovenfra" },
@@ -66,12 +65,12 @@ const prices = [
   {
     type: "Stor",
     size: "Opp til 35 fot",
-    count: "3 plasser tilgjengelig",
+    count: "2 plasser tilgjengelig",
     price: "kr 5 900",
     per: "/ sesong",
     features: [
-      "Utligger for større båt",
-      "Dyp og skjermet liggeplass",
+      "Plass langs brygge for større båt",
+      "Godt skjermet bak moloen",
       "Båtslipp & vinterlager i nærheten",
     ],
     feature: false,
@@ -80,9 +79,16 @@ const prices = [
 ] as const;
 
 const facilities = [
-  { Icon: BoltIcon, title: "Strøm & vann", text: "Tilgang til landstrøm og ferskvann på bryggene." },
-  { Icon: FishIcon, title: "Sløyebod", text: "Profesjonell løsning for å gjøre klar fangsten." },
-  { Icon: SlipIcon, title: "Båtslipp", text: "Enkelt båtutsett og opptak vår og høst." },
+  {
+    Icon: FishIcon,
+    title: "Sløyebod",
+    text: "Profesjonell løsning for å sløye og gjøre klar fangsten — godt utstyrt og rett ved kaikanten. Markert som oransje boks på kartet.",
+  },
+  {
+    Icon: SlipIcon,
+    title: "Båtslipp",
+    text: "Båtutsett og båtopptak vår og høst — enkelt å bruke for både små og større båter. Plassering vist på kartet.",
+  },
   { Icon: StorageIcon, title: "Båtlager", text: "Trygg lagring av båter og hengere om vinteren." },
   { Icon: WaveIcon, title: "165 m molo", text: "Gressbelagt molo som skjermer havna mot vær og vind." },
   { Icon: ParkingIcon, title: "Parkering", text: "God parkering rett ved anlegget for deg og gjester." },
@@ -120,7 +126,7 @@ export default function BaatplasserPage() {
             <span id="bp-title">Båtplasser</span>
           </Reveal>
           <Reveal as="p" delay={2}>
-            16 plasser i en havn som er godt skjermet av den 165 meter lange moloen —
+            15 plasser i en havn som er godt skjermet av den 165 meter lange moloen —
             fra jolle til 35-fotning, trygt forankret ytterst mot storhavet.
           </Reveal>
         </div>
@@ -143,8 +149,8 @@ export default function BaatplasserPage() {
               </div>
               <p className="cap">
                 <InfoIcon style={{ width: 15, height: 15 }} />
-                Brygge A med plass 1–12, samt flytebryggene B og C. «Privat» og
-                båtslipp markert.
+                Hovedbrygge med plass 1–12, samt plassene A, B og C. Sløyebod
+                (oransje boks) og båtslipp er markert på kartet.
               </p>
             </Reveal>
             <Reveal delay={1}>
@@ -157,24 +163,26 @@ export default function BaatplasserPage() {
               </p>
               <div className="legend">
                 <div className="row">
-                  <span className="tag">A</span>
+                  <span className="tag" style={{ fontSize: 14 }}>
+                    1–12
+                  </span>
                   <div>
                     <b>Hovedbrygge · plass 1–12</b>
-                    <span>Faste plasser langs den lange brygga.</span>
+                    <span>Tolv faste plasser à 2,5 m brede.</span>
                   </div>
                 </div>
                 <div className="row">
-                  <span className="tag">B</span>
+                  <span className="tag">A</span>
                   <div>
-                    <b>Flytebrygge</b>
-                    <span>Ekstra liggeplass i ytre del av bassenget.</span>
+                    <b>Plass A · 3,5 m brei</b>
+                    <span>Bredere plass for dagsturbåt eller bowrider.</span>
                   </div>
                 </div>
                 <div className="row">
-                  <span className="tag">C</span>
+                  <span className="tag">B&nbsp;·&nbsp;C</span>
                   <div>
-                    <b>Utligger</b>
-                    <span>For de største båtene, opp til 35 fot.</span>
+                    <b>Plass B og C · opp til 35 fot</b>
+                    <span>To plasser for større båter, godt skjermet bak moloen.</span>
                   </div>
                 </div>
               </div>
@@ -190,8 +198,9 @@ export default function BaatplasserPage() {
             <p className="eyebrow">Plasstyper &amp; priser</p>
             <h2 id="bp-price-title">Velg plassen som passer båten din.</h2>
             <p>
-              Plassene leies per sesong. Et knippe er ledige for 2026 — ta kontakt
-              så finner vi rett plass til deg.
+              Plassene leies per sesong — sesongen varer fra april til oktober.
+              Et knippe er ledige for 2026 — ta kontakt så finner vi rett plass
+              til deg.
             </p>
           </Reveal>
           <div className="price-grid">
@@ -297,7 +306,7 @@ export default function BaatplasserPage() {
                 }}
               >
                 <div className="n" style={{ color: "var(--color-sand)" }}>
-                  16
+                  15
                 </div>
                 <div className="t" style={{ color: "rgba(255,255,255,.8)" }}>
                   båtplasser totalt — flere ledige nå

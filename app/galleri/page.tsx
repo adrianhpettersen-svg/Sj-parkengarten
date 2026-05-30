@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const images = [
   { src: "/assets/sunset.jpg", alt: "Solnedgang over havet ved Sjøparken Garten", cls: "wide tall" },
-  { src: "/assets/marina.jpg", alt: "Utleieboliger ved marinaen", cls: "" },
+  { src: "/assets/marina.jpg", alt: "Boliger ved marinaen", cls: "" },
   { src: "/assets/rope.jpg", alt: "Tau og fortøyning langs havna", cls: "tall" },
   { src: "/assets/harbor.jpg", alt: "Marinaen sett ovenfra", cls: "wide" },
   { src: "/assets/aerial.jpg", alt: "Flyfoto av Garten og skjærgården", cls: "" },
@@ -63,7 +63,7 @@ export default function GalleriPage() {
               Bilder fra anlegget og skjærgården.
             </h1>
             <p>
-              Et utvalg bilder fra marinaen, utleieboligene og naturen rundt {site.longName}.
+              Et utvalg bilder fra marinaen, anlegget og naturen rundt {site.longName}.
             </p>
           </Reveal>
         </div>

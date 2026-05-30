@@ -61,15 +61,12 @@ export default function KontaktPage() {
               <span aria-hidden="true">/</span>
               <span>Kontakt</span>
             </nav>
-            <p className="eyebrow" style={{ marginTop: 18 }}>
+            <h1 id="kt-title" className="eyebrow" style={{ marginTop: 18 }}>
               Kontakt
-            </p>
-            <h1 id="kt-title" style={{ color: "var(--color-ink)" }}>
-              Vi svarer gjerne på det du lurer på.
             </h1>
-            <p>
-              Enten det gjelder båtplass for 2026, utleiebolig eller en henvendelse
-              om anlegget — ta kontakt, så hører du fra oss.
+            <p style={{ marginTop: 18, fontSize: "1.08rem", color: "var(--muted)" }}>
+              Enten det gjelder båtplass eller en henvendelse om anlegget — ta
+              kontakt, så hører du fra oss.
             </p>
           </Reveal>
         </div>
@@ -122,7 +119,11 @@ export default function KontaktPage() {
                   sizes="(max-width: 860px) 100vw, 50vw"
                   style={{ objectFit: "cover", opacity: 0.85 }}
                 />
-                <span className="pin" aria-hidden="true">
+                <span
+                  className="pin"
+                  aria-hidden="true"
+                  style={{ top: "68%", left: "34%" }}
+                >
                   <PinFilled />
                 </span>
               </div>

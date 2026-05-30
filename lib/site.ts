@@ -3,7 +3,7 @@ export const site = {
   longName: "Sjøparken Garten Marina",
   tagline: "Tett på havet, trygt i havn",
   description:
-    "Godt skjermet marina ytterst på Garten i Trøndelag. Båtplasser opp til 35 fot, sløyebod, båtslipp, båtlager og utleieboliger — tett på havet, trygt i havn.",
+    "Godt skjermet marina ytterst på Garten i Trøndelag. Båtplasser opp til 35 fot, sløyebod, båtslipp og båtlager — tett på havet, trygt i havn.",
   shortDescription:
     "Godt skjermet marina ytterst på Garten — etablert 2005.",
   url: "https://sjoparkengarten.no",
@@ -45,11 +45,11 @@ export const site = {
     vatNote: "Prisene er ikke MVA-belagt.",
   },
   marina: {
-    totalBerths: 16,
+    totalBerths: 15,
     breakdownByLength: [
       { count: 12, lengthMeters: 2.5, label: "12 plasser · 2,5 meter" },
       { count: 1, lengthMeters: 3.5, label: "1 plass · 3,5 meter" },
-      { count: 3, lengthFeet: 35, label: "3 plasser · opp til 35 fot" },
+      { count: 2, lengthFeet: 35, label: "2 plasser · opp til 35 fot" },
     ],
     moloLengthMeters: 165,
     siteSizeMaal: 30,
