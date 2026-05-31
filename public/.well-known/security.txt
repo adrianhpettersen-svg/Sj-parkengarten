@@ -1,0 +1,3 @@
+Contact: mailto:post@sjoparkengarten.no
+Preferred-Languages: no, en
+Canonical: https://sjoparkengarten.no/.well-known/security.txt

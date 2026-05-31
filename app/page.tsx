@@ -5,7 +5,8 @@ import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { Gallery, type GalleryImage } from "@/components/Gallery";
 import { ContactForm } from "@/components/ContactForm";
-import { site } from "@/lib/site";
+import { homeGraph, JsonLd } from "@/lib/structured-data";
+import { nav, site } from "@/lib/site";
 import {
   ArrowRight,
   FerryIcon,
@@ -71,6 +72,7 @@ export default function HomePage() {
   return (
     <>
       <Header />
+      <JsonLd data={homeGraph(nav.map((n) => ({ name: n.label, href: n.href })))} />
 
       {/* HERO */}
       <section className="hero" aria-labelledby="hero-title">

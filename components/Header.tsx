@@ -57,16 +57,20 @@ export function Header({ variant = "auto" }: Props) {
           </Link>
 
           <nav className="site-nav" aria-label="Hovedmeny">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={isActive(item.href) ? "active" : undefined}
-                onClick={closeMenu}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {nav.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={active ? "active" : undefined}
+                  aria-current={active ? "page" : undefined}
+                  onClick={closeMenu}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="header-actions">

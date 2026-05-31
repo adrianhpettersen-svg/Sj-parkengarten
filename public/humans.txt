@@ -1,0 +1,24 @@
+/* TEAM */
+
+Eier: Sjøparken Garten AS
+Adresse: Gartveien 253, 7153 Garten, Norge
+Telefon: +47 900 22 945
+E-post: post@sjoparkengarten.no
+Etablert: 2005
+
+/* SITE */
+
+Sist oppdatert: 2026
+Standard: HTML5, CSS3, ECMAScript
+Komponenter: Next.js, React, Tailwind CSS
+Hosted on: Vercel (Frankfurt)
+E-post: Resend
+Språk: Norsk bokmål (nb-NO)
+
+/* THANKS */
+
+Anlegg og innhold: Sjøparken Garten
+Design og utvikling: Adrian H. Pettersen (Fosen Tools)
+Foto: Sjøparken Garten
+
+"Helt ytterst av Fosen-halvøya — tett på havet, trygt i havn."

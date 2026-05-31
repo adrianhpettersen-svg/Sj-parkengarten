@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { ContactForm } from "@/components/ContactForm";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, contactPageSchema, JsonLd } from "@/lib/structured-data";
+import { JsonLd, kontaktGraph } from "@/lib/structured-data";
 import {
   ClockIcon,
   MailIcon,
@@ -30,13 +30,7 @@ export default function KontaktPage() {
   return (
     <>
       <Header variant="solid" />
-      <JsonLd
-        data={breadcrumbSchema([
-          { name: "Hjem", href: "/" },
-          { name: "Kontakt", href: "/kontakt" },
-        ])}
-      />
-      <JsonLd data={contactPageSchema()} />
+      <JsonLd data={kontaktGraph()} />
 
       <section
         style={{

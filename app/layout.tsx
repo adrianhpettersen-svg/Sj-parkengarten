@@ -3,12 +3,6 @@ import { Newsreader, Hanken_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { site } from "@/lib/site";
-import {
-  JsonLd,
-  marinaSchema,
-  organizationSchema,
-  websiteSchema,
-} from "@/lib/structured-data";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -127,9 +121,31 @@ export default function RootLayout({
     <html lang="no" className={`${newsreader.variable} ${hanken.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <JsonLd data={organizationSchema()} />
-        <JsonLd data={marinaSchema()} />
-        <JsonLd data={websiteSchema()} />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={`${site.longName} – nyheter`}
+          href={`${site.url}/rss.xml`}
+        />
+        <link rel="alternate" hrefLang="nb-NO" href={site.url} />
+        <link rel="alternate" hrefLang="no" href={site.url} />
+        <link rel="alternate" hrefLang="x-default" href={site.url} />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content={site.name} />
+        <meta name="application-name" content={site.longName} />
+        <meta name="msapplication-TileColor" content="#0b3a53" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="geo.region" content="NO-50" />
+        <meta name="geo.placename" content="Garten, Trøndelag" />
+        <meta name="geo.position" content={`${site.geo.latitude};${site.geo.longitude}`} />
+        <meta name="ICBM" content={`${site.geo.latitude}, ${site.geo.longitude}`} />
+        <meta name="rating" content="general" />
+        <meta name="distribution" content="global" />
+        <meta name="revisit-after" content="14 days" />
       </head>
       <body>
         {children}

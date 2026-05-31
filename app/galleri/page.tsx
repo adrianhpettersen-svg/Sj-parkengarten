@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { Gallery, type GalleryImage } from "@/components/Gallery";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, imageGallerySchema, JsonLd } from "@/lib/structured-data";
+import { galleriGraph, JsonLd } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
   title: "Galleri",
@@ -35,13 +35,7 @@ export default function GalleriPage() {
   return (
     <>
       <Header variant="solid" />
-      <JsonLd
-        data={breadcrumbSchema([
-          { name: "Hjem", href: "/" },
-          { name: "Galleri", href: "/galleri" },
-        ])}
-      />
-      <JsonLd data={imageGallerySchema(images)} />
+      <JsonLd data={galleriGraph(images)} />
 
       <section
         style={{ paddingTop: "clamp(140px, 16vh, 180px)", paddingBottom: 0 }}

@@ -5,7 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Reveal } from "@/components/Reveal";
 import { site } from "@/lib/site";
-import { breadcrumbSchema, JsonLd, serviceSchema } from "@/lib/structured-data";
+import { baatplasserGraph, JsonLd } from "@/lib/structured-data";
 import {
   ArrowRight,
   CheckIcon,
@@ -75,6 +75,41 @@ const prices = [
   },
 ] as const;
 
+const faqs = [
+  {
+    q: "Når starter og slutter båtsesongen ved Sjøparken Garten?",
+    a: "Sesongen varer fra april til oktober. Båter kan ligge i havna i denne perioden, og vi tilbyr vinterlager fra november til mars.",
+  },
+  {
+    q: "Hvor stor båt kan jeg ha ved Sjøparken Garten Marina?",
+    a: "Vi har plasser fra 2,5 meter brede (12 stk for jolle og småbåt) og opp til 35 fot (plass B og C). Den bredeste enkeltplassen er 3,5 m (plass A).",
+  },
+  {
+    q: "Hva koster en båtplass per sesong?",
+    a: "Plass på 2,5 m koster kr 4 900 per sesong. Plass på 3,5 m og plass for båt opp til 35 fot koster kr 5 900 per sesong. Prisene er ikke MVA-belagt.",
+  },
+  {
+    q: "Tilbyr dere vinterlagring av båt?",
+    a: "Ja, vi har båtlager for både båter og hengere. Vinterlager koster fra kr 3 000 per sesong — ta kontakt for tilgjengelighet.",
+  },
+  {
+    q: "Har dere sløyebod og båtslipp?",
+    a: "Ja, vi har en profesjonell sløyebod godt utstyrt og rett ved kaikanten, samt båtslipp for båtutsett og båtopptak vår og høst. Begge er åpne for plassleietakere.",
+  },
+  {
+    q: "Hvor ligger Sjøparken Garten?",
+    a: "Vi ligger på Gartveien 253, 7153 Garten — helt ytterst på Fosen-halvøya i Trøndelag, siste stopp med fastlandsforbindelse via bro. Fra Trondheim tar det ca. 1 time å kjøre hit.",
+  },
+  {
+    q: "Hvor godt skjermet er havna mot vær og vind?",
+    a: "Havnebassenget ligger lunt bak en 165 meter lang gressbelagt molo som beskytter mot vind og bølger fra storhavet. Faste fortøyninger og jevn vannstand gjør det trygt selv i dårlig vær.",
+  },
+  {
+    q: "Hvordan reserverer jeg båtplass?",
+    a: "Ta kontakt på telefon 900 22 945 eller send oss en melding via kontaktskjemaet på siden — så finner vi rett plass til båten din.",
+  },
+];
+
 const facilities = [
   {
     Icon: FishIcon,
@@ -95,20 +130,7 @@ export default function BaatplasserPage() {
   return (
     <>
       <Header />
-      <JsonLd
-        data={breadcrumbSchema([
-          { name: "Hjem", href: "/" },
-          { name: "Båtplasser", href: "/baatplasser" },
-        ])}
-      />
-      <JsonLd
-        data={serviceSchema({
-          name: "Båtplassutleie ved Sjøparken Garten Marina",
-          description:
-            "Sesongleie av båtplasser fra 2,5 m til 35 fot i godt skjermet havn på Garten i Trøndelag. Sesongen varer fra april til oktober.",
-          serviceType: "Båtplassutleie",
-        })}
-      />
+      <JsonLd data={baatplasserGraph(faqs)} />
 
       <section className="page-hero" aria-labelledby="bp-title">
         <div className="page-hero-bg">
@@ -263,6 +285,84 @@ export default function BaatplasserPage() {
                 </div>
                 <h3>{title}</h3>
                 <p>{text}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section
+        className="section-y"
+        style={{ background: "var(--color-sky)" }}
+        aria-labelledby="bp-faq-title"
+        id="faq"
+      >
+        <div className="container-x">
+          <Reveal className="section-head">
+            <p className="eyebrow">Vanlige spørsmål</p>
+            <h2 id="bp-faq-title">Spørsmål vi ofte får om båtplassene.</h2>
+            <p>
+              Får du ikke svar her? <Link href="/kontakt" className="textlink">Ta kontakt</Link> så svarer vi.
+            </p>
+          </Reveal>
+          <div
+            style={{
+              display: "grid",
+              gap: "12px",
+              maxWidth: "880px",
+            }}
+          >
+            {faqs.map((faq, i) => (
+              <Reveal
+                key={faq.q}
+                as="details"
+                delay={(Math.min(i, 4) as 0 | 1 | 2 | 3 | 4)}
+                className="faq-item"
+              >
+                <summary
+                  style={{
+                    cursor: "pointer",
+                    padding: "20px 24px",
+                    background: "var(--color-off)",
+                    border: "1px solid var(--line)",
+                    borderRadius: "var(--radius-card)",
+                    fontFamily: "var(--font-serif)",
+                    fontSize: "1.18rem",
+                    fontWeight: 500,
+                    color: "var(--color-ocean)",
+                    listStyle: "none",
+                    transition: "background 0.2s",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    gap: "16px",
+                  }}
+                >
+                  {faq.q}
+                  <span
+                    aria-hidden="true"
+                    style={{
+                      color: "var(--color-sunset)",
+                      fontFamily: "var(--font-sans)",
+                      fontSize: "1.5rem",
+                      lineHeight: 1,
+                      flexShrink: 0,
+                    }}
+                  >
+                    +
+                  </span>
+                </summary>
+                <div
+                  style={{
+                    padding: "8px 24px 22px",
+                    color: "var(--muted)",
+                    fontSize: "1rem",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {faq.a}
+                </div>
               </Reveal>
             ))}
           </div>
