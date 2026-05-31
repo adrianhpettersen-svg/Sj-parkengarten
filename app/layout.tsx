@@ -109,8 +109,19 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // Sett GOOGLE_SITE_VERIFICATION i Vercel env vars når dere er klare for Search Console
     google: process.env.GOOGLE_SITE_VERIFICATION,
+    yandex: process.env.YANDEX_SITE_VERIFICATION,
+    other: {
+      ...(process.env.BING_SITE_VERIFICATION
+        ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
+        : {}),
+      ...(process.env.FACEBOOK_DOMAIN_VERIFICATION
+        ? { "facebook-domain-verification": process.env.FACEBOOK_DOMAIN_VERIFICATION }
+        : {}),
+      ...(process.env.PINTEREST_SITE_VERIFICATION
+        ? { "p:domain_verify": process.env.PINTEREST_SITE_VERIFICATION }
+        : {}),
+    },
   },
 };
 
